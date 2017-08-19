@@ -1,5 +1,5 @@
 export class AppConst {
-	public static serverPath = 'http://127.0.0.1:8181';
+	public static serverPath = 'https://dashboard.heroku.com/apps/protected-sands-45565';
 
 	public static usStates = {
 		"AL": "Alabama",
