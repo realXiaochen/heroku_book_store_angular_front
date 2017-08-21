@@ -1,9 +1,11 @@
 <div class="container">
     <div class="row">
-        <div class="row" style="margin-top: 40px;">
+        <div class="row" style="margin-top: 20px;">
             <div class="col-xs-3">
                 <a routerLink="/bookList">Back to book list</a>
-                <br />
+                <br>
+                <br>
+                <br>
                 <img class="img-responsive" src="{{serverPath}}/image/book/{{book.id}}.png" />
             </div>
             <div class="col-xs-9">
@@ -50,6 +52,7 @@
             </div>
 
             <hr />
+            <div [innerHTML]="book.description"></div>
             <p>{{book.description}}</p>
         </div>
     </div>
