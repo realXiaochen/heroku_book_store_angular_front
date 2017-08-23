@@ -32,6 +32,7 @@ import { OrderService } from './services/order.service';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { CartService } from './services/cart.service';
+import { CheckoutService } from './services/checkout.service';
 
 
 
