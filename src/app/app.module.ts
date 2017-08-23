@@ -71,6 +71,7 @@ import { CheckoutService } from './services/checkout.service';
     ShippingService,
     OrderService,
     CartService,
+    CheckoutService,
     ],
   bootstrap: [AppComponent]
 })
