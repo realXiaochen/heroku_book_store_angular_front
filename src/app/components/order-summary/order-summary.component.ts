@@ -12,35 +12,35 @@ import { CartItem } from '../../models/cart-item';
   styleUrls: ['./order-summary.component.css']
 })
 export class OrderSummaryComponent implements OnInit {
-	private serverPath = AppConst.serverPath;
-	private order:Order = new Order();
-	private estimatedDeliveryDate: string;
-	private cartItemList: CartItem[] = [];
+  private serverPath = AppConst.serverPath;
+  private order:Order = new Order();
+  private estimatedDeliveryDate: string;
+  private cartItemList: CartItem[] = [];
 
   constructor(
-  	private checkoutService: CheckoutService,
-  	private route: ActivatedRoute,
-  	private router: Router
-  	) { }
+    private checkoutService: CheckoutService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) { }
 
   ngOnInit() {
-  	this.route.queryParams.subscribe(params => {
-  		this.order = JSON.parse(params['order']);
+    this.route.queryParams.subscribe(params => {
+      this.order = JSON.parse(params['order']);
 
-  		let deliveryDate = new Date();
+      let deliveryDate = new Date();
 
-  		if(this.order.shippingMethod=="groundShipping") {
-  			deliveryDate.setDate(deliveryDate.getDate()+5);
-  		} else {
-  			deliveryDate.setDate(deliveryDate.getDate()+3);
-  		}
+      if(this.order.shippingMethod=="groundShipping") {
+        deliveryDate.setDate(deliveryDate.getDate()+5);
+      } else {
+        deliveryDate.setDate(deliveryDate.getDate()+3);
+      }
 
-  		let days=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  		this.estimatedDeliveryDate = days[deliveryDate.getDay()]+', '+deliveryDate.getFullYear()+'/'+deliveryDate.getMonth()+'/'+deliveryDate.getDate();
+      let days=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      this.estimatedDeliveryDate = days[deliveryDate.getDay()]+', '+deliveryDate.getFullYear()+'/'+deliveryDate.getMonth()+'/'+deliveryDate.getDate();
 
 
-  		this.cartItemList = this.order.cartItemList;
-  	});
+      this.cartItemList = this.order.cartItemList;
+    });
   }
 
 }
